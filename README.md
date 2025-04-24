@@ -20,7 +20,7 @@ PCI0 in DSDT by MaciASL
 *  Disable device X (set the _STA method = Zero) and enable device Y (set the _STA method = 0x0F).
 
 
-*** *** NOTE: For each scope expression you use, there must be a corresponding external reference. See the examples.
+*NOTE: For each scope expression you use, there must be a corresponding external reference. See the examples.*
 
 Renaming the SATA controller from (SAT1 or SAT0) to SATA
 
