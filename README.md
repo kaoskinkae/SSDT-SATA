@@ -5,6 +5,7 @@ Renaming Devices Using SSDT
 Whenever possible, using SSDT to rename devices is preferred over binary renaming, as it allows for a macOS-wide approach, which is otherwise impossible since OpenCore applies binary renaming system-wide (unlike Clover). In this section, we discuss how to achieve this and when to use each method.
 
 Patching Principle
+
 The SSDT for renaming a device must meet the following conditions to work:
 
 Scope a device (DeviceObj) in the DSDT at the specific location(s) (PCI path) defined in the "External" section of the SSDT.
@@ -22,24 +23,31 @@ Renaming (SAT1 or SATA0) to SATA is not mandatory (it's purely cosmetic).
 
 DefinitionBlock ("", "SSDT", 2, "5T33Z0", "SATA", 0x00001000)
 {
-External (_SB_.PCI0, DeviceObj) // Adjust ACPI paths based on their DSDT
+    External (_SB_.PCI0, DeviceObj)         // Adjust ACPI Paths according to your DSDT
+    External (_SB_.PCI0.SAT1, DeviceObj)    // Adjust Device name as needed
+    
+    If (_OSI ("Darwin"))                    // If the macOS Kernel is running…
+    {
+        Scope (\_SB.PCI0)                   // …look here for…
+        {
+            Scope (SAT1)                    // …Device SAT1 and…
+            {
+                Method (_STA, 0, NotSerialized) // 
+                {
+                    Return (Zero)          // … set its Status to 0 (disable it)
+                }
+            }
 
-External (_SB_.PCI0.SAT1, DeviceObj) // Adjust the device name as needed
-
-If (_OSI ("Darwin")) // If the macOS kernel is running…
-{
-
-Scope (\_SB.PCI0) // …look here… could be PCII
-{
-
-Scope (SAT1) // …SAT1 device and…
-{
-
-Method (_STA, 0, NotSerialized) //
-{
-
-Return (Zero) // …set its state to 0 (disable)
-}
+            Device (SATA)                  // Add Device SATA…
+            {   
+                Name (_ADR, 0x001F0002)    // …with Address (get it from DSDT)
+                Method (_STA, 0, NotSerialized)
+                {
+                    Return (0x0F)          // …and enable it
+                }
+            }
+        }
+    }
 }
 
 Device (SATA) // Add SATA device…
