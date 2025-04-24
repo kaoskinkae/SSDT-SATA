@@ -10,6 +10,10 @@ The SSDT for renaming a device must meet the following conditions to work:
 
 Scope a device (DeviceObj) in the DSDT at the specific location(s) (PCI path) defined in the "External" section of the SSDT.
 
+PCI0 in DSDT by MaciASL 
+![Captura de pantalla 2025-04-24 a las 11 15 38](https://github.com/user-attachments/assets/96ed2781-c61d-499d-a685-7e50b11d20db)
+
+
 If the loaded kernel is "Darwin" (the macOS kernel), do the following:
 
 Disable device X (set the _STA method = Zero) and enable device Y (set the _STA method = 0x0F).
