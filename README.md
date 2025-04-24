@@ -4,7 +4,7 @@
 
 Whenever possible, using SSDT to rename devices is preferred over binary renaming, as it allows for a macOS-wide approach, which is otherwise impossible since OpenCore applies binary renaming system-wide (unlike Clover). In this section, we discuss how to achieve this and when to use each method.
 
-Patching Principle
+### Patching Principle
 
 The SSDT for renaming a device must meet the following conditions to work:
 
@@ -32,7 +32,7 @@ Renaming (SAT1 or SAT0) to SATA is not mandatory (it's purely cosmetic).
 
 
 
-Testing and Verification
+### Testing and Verification
 
 Make sure you have a working backup of your EFI folder on a flash drive, always commenting out any changes you make.
 
@@ -41,7 +41,7 @@ Export the SSDT as an .aml file (SSDT-SATA.aml)
 Add it to /EFI/OC/ACPI and to config.plist.
 
 
-Save and reboot.
+### Save and reboot.
 
 Check that it appears changed in Hackintool under the PCIe section and in IORegistriExplore. If you are not present in our DSDT, you can verify this by opening MaciASL and searching for “SAT”.
 
