@@ -8,7 +8,7 @@ Patching Principle
 
 The SSDT for renaming a device must meet the following conditions to work:
 
-Scope a device (DeviceObj) in the DSDT at the specific location(s) (PCI path) defined in the "External" section of the SSDT.
+  Scope a device (DeviceObj) in the DSDT at the specific location(s) (PCI path) defined in the "External" section of the SSDT.
 
 PCI0 in DSDT by MaciASL 
 
