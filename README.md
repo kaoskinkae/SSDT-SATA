@@ -23,17 +23,6 @@ Renaming (SAT1 or SATA0) to SATA is not mandatory (it's purely cosmetic).
 ![Captura de pantalla 2025-04-24 a las 9 36 05](https://github.com/user-attachments/assets/c0680600-786f-4232-923b-bc326d7df99e)
 
 
-Device (SATA) // Add SATA device…
-{
-Name (_ADR, 0x001F0002) // …with address (obtained from DSDT)
-Method (_STA, 0, Not Serialized)
-{
-Return (0x0F) // …and activate it
-}
-}
-}
-}
-}
 
 
 Testing and Verification
