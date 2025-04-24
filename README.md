@@ -1,5 +1,6 @@
 
 Renaming Devices via SSDT
+
 Whenever possible, using SSDTs for renaming Devices is preferred over using binary renames because you can limit it to macOS which is impossible otherwise since OpenCore applies binary renames system-wide (unlike Clover). In this section we take a look at how this can be achieved and when to use which approach.
 
 Patching Principle
@@ -14,34 +15,8 @@ NOTE: For each Scope expression you are using there has to be a corresponding Ex
 Example 1: Rename SATA Controller from SAT1 to SATA
 Renaming SAT1 to SATA is not a requirement (it's purely cosmetic), but it's an easy to understand example (read the comments indicated by // for explanations):
 
-DefinitionBlock ("", "SSDT", 2, "5T33Z0", "SATA", 0x00001000)
-{
-    External (_SB_.PCI0, DeviceObj)         // Adjust ACPI Paths according to your DSDT
-    External (_SB_.PCI0.SAT1, DeviceObj)    // Adjust Device name as needed
-    
-    If (_OSI ("Darwin"))                    // If the macOS Kernel is running…
-    {
-        Scope (\_SB.PCI0)                   // …look here for…
-        {
-            Scope (SAT1)                    // …Device SAT1 and…
-            {
-                Method (_STA, 0, NotSerialized) // 
-                {
-                    Return (Zero)          // … set its Status to 0 (disable it)
-                }
-            }
 
-            Device (SATA)                  // Add Device SATA…
-            {   
-                Name (_ADR, 0x001F0002)    // …with Address (get it from DSDT)
-                Method (_STA, 0, NotSerialized)
-                {
-                    Return (0x0F)          // …and enable it
-                }
-            }
-        }
-    }
-}
+   
 Testing and verifying
 Make sure you have a backup of your working EFI folder on a FAT32 formatted flash drive
 Export the SSDT as .aml file
