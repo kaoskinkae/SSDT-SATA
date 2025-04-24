@@ -20,35 +20,8 @@ Renaming the SATA controller from (SAT1 or SATA0) to SATA
 
 Renaming (SAT1 or SATA0) to SATA is not mandatory (it's purely cosmetic).
 
+![Captura de pantalla 2025-04-24 a las 9 36 05](https://github.com/user-attachments/assets/c0680600-786f-4232-923b-bc326d7df99e)
 
-DefinitionBlock ("", "SSDT", 2, "5T33Z0", "SATA", 0x00001000)
-{
-    External (_SB_.PCI0, DeviceObj)         // Adjust ACPI Paths according to your DSDT
-    External (_SB_.PCI0.SAT1, DeviceObj)    // Adjust Device name as needed
-    
-    If (_OSI ("Darwin"))                    // If the macOS Kernel is running…
-    {
-        Scope (\_SB.PCI0)                   // …look here for…
-        {
-            Scope (SAT1)                    // …Device SAT1 and…
-            {
-                Method (_STA, 0, NotSerialized) // 
-                {
-                    Return (Zero)          // … set its Status to 0 (disable it)
-                }
-            }
-
-            Device (SATA)                  // Add Device SATA…
-            {   
-                Name (_ADR, 0x001F0002)    // …with Address (get it from DSDT)
-                Method (_STA, 0, NotSerialized)
-                {
-                    Return (0x0F)          // …and enable it
-                }
-            }
-        }
-    }
-}
 
 Device (SATA) // Add SATA device…
 {
