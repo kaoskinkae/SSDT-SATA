@@ -15,14 +15,13 @@ Enable Device Y (set Method _STA = 0x0F)
 *NOTE: For each Scope expression you are using there has to be a corresponding External reference.*
 
 Rename SATA Controller from SAT1/SAT0 to SATA
-Renaming SAT1 to SATA is not a requirement (it's purely cosmetic), but it's an easy to understand example (read the comments indicated by // for explanations):
+Renaming SAT1 o SAT0 to SATA is not a requirement (it's purely cosmetic)
 
 ![Captura de pantalla 2025-04-24 a las 14 19 25](https://github.com/user-attachments/assets/fd7468ad-773d-47d5-bd00-f8bdd2dc8717)
 
    
-Testing and verifying
-Make sure you have a backup of your working EFI folder on a FAT32 formatted flash drive
-Export the SSDT as .aml file
+### Testing and verifying
+
 Add it to /EFI/OC/ACPI and config.plist
 Save and reboot
 Run IORegistry Exlorer
