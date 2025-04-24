@@ -1,9 +1,6 @@
-SSDT-SATA
+# SSDT-SATA
 
-@settings { 
-  font-size: 100;
-**Renaming Devices Using SSDT**
-}
+## **Renaming Devices Using SSDT**
 
 Whenever possible, using SSDT to rename devices is preferred over binary renaming, as it allows for a macOS-wide approach, which is otherwise impossible since OpenCore applies binary renaming system-wide (unlike Clover). In this section, we discuss how to achieve this and when to use each method.
 
