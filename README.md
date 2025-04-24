@@ -18,7 +18,7 @@ NOTE: For each scope expression you use, there must be a corresponding external 
 
 Renaming the SATA controller from (SAT1 or SAT0) to SATA
 
-Renaming (SAT1 or SATA0) to SATA is not mandatory (it's purely cosmetic).
+Renaming (SAT1 or SAT0) to SATA is not mandatory (it's purely cosmetic).
 
 
 ![Captura de pantalla 2025-04-24 a las 9 36 05](https://github.com/user-attachments/assets/c0680600-786f-4232-923b-bc326d7df99e)
