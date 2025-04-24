@@ -35,6 +35,7 @@ Export the SSDT as an .aml file (SSDT-SATA.aml)
 
 Add it to /EFI/OC/ACPI and to config.plist.
 
+
 Save and reboot.
 
 Check that it appears changed in Hackintool under the PCIe section and in IORegistriExplore. If you are not present in our DSDT, you can verify this by opening MaciASL and searching for “SAT”.
