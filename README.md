@@ -19,6 +19,7 @@ Renaming the SATA controller from (SAT1 or SATA0) to SATA
 
 Renaming (SAT1 or SATA0) to SATA is not mandatory (it's purely cosmetic).
 
+
 DefinitionBlock ("", "SSDT", 2, "5T33Z0", "SATA", 0x00001000)
 {
 External (_SB_.PCI0, DeviceObj) // Adjust ACPI paths based on their DSDT
