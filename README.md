@@ -38,6 +38,9 @@ Save and reboot.
 
 Check that it appears changed in Hackintool under the PCIe section and in IORegistriExplore. If you are not present in our DSDT, you can verify this by opening MaciASL and searching for “SAT”.
 
+![Captura de pantalla 2025-04-24 a las 11 07 17](https://github.com/user-attachments/assets/03ed820c-5395-45dd-b67e-6de3c7d687ad)
+
+
 ![Captura de pantalla 2025-04-24 a las 9 31 13](https://github.com/user-attachments/assets/fdbf3a17-c51b-483b-b2da-0896178aa1f0)
 
 ![Captura de pantalla 2025-04-24 a las 11 05 34](https://github.com/user-attachments/assets/0eba83c5-5d7b-4c40-86c8-1c166f40a054)
