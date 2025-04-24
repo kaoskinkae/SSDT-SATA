@@ -15,9 +15,9 @@ PCI0 in DSDT by MaciASL
 ![Captura de pantalla 2025-04-24 a las 11 15 38](https://github.com/user-attachments/assets/96ed2781-c61d-499d-a685-7e50b11d20db)
 
 
-If the loaded kernel is "Darwin" (the macOS kernel), do the following:
+* * If the loaded kernel is "Darwin" (the macOS kernel), do the following:
 
-Disable device X (set the _STA method = Zero) and enable device Y (set the _STA method = 0x0F).
+* * Disable device X (set the _STA method = Zero) and enable device Y (set the _STA method = 0x0F).
 
 
 NOTE: For each scope expression you use, there must be a corresponding external reference. See the examples.
