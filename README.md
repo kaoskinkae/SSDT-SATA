@@ -53,6 +53,8 @@ Check that it appears changed in Hackintool under the PCIe section and in IORegi
 ![Captura de pantalla 2025-04-24 a las 11 05 34](https://github.com/user-attachments/assets/0eba83c5-5d7b-4c40-86c8-1c166f40a054)
 
 
+
 Credits and Resources
+
 Dortania for Rename-SSDT
 
