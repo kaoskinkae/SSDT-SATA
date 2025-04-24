@@ -35,6 +35,6 @@ SATA
 ![Captura de pantalla 2025-04-24 a las 14 07 34](https://github.com/user-attachments/assets/8fdf3bdc-6a2e-4b87-9452-3c0ad14712f6)
 
 
-
-
+Credits and Resources
+Dortania for Rename-SSDT
 
