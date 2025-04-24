@@ -1,5 +1,4 @@
 # SSDT-SATA
-Renaming Devices Using SSDT
 
 Renaming Devices Using SSDT
 
