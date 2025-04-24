@@ -11,10 +11,13 @@ Look for ("Scope") a Device (DeviceObj) in the DSDT at specific location(s) (PCI
 If the loaded Kernel is "Darwin" (= the macOS Kernel) do the following:
 Disable Device X (set Method _STA = Zero) and
 Enable Device Y (set Method _STA = 0x0F)
-NOTE: For each Scope expression you are using there has to be a corresponding External reference. See examples.
+
+*NOTE: For each Scope expression you are using there has to be a corresponding External reference.*
 
 Rename SATA Controller from SAT1/SAT0 to SATA
 Renaming SAT1 to SATA is not a requirement (it's purely cosmetic), but it's an easy to understand example (read the comments indicated by // for explanations):
+
+![Captura de pantalla 2025-04-24 a las 14 06 35](https://github.com/user-attachments/assets/e91316a9-967f-4c3b-8623-b6868089142d)
 
    
 Testing and verifying
@@ -27,7 +30,11 @@ Search for SAT
 The output should look like this:
 SATA
 
+![Captura de pantalla 2025-04-24 a las 14 07 10](https://github.com/user-attachments/assets/ca9e61a0-4e01-4065-85e8-31ddb635ad1a)
 
-If you don't add the Name (_ADR,0x…) portion to the code, the controller will still work, but you won't find it in the IO Registry:
-SAD
-In general, if the device name you want to change is used in other ACPI tables besides the DSDT, you have to change it there as well, so the device name is the same for all ACPI tables. If that's the case, using a binary rename which applies system-wide so all occurrences are found and renamed is preferable.
+![Captura de pantalla 2025-04-24 a las 14 07 34](https://github.com/user-attachments/assets/8fdf3bdc-6a2e-4b87-9452-3c0ad14712f6)
+
+
+
+
+
