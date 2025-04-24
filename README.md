@@ -17,7 +17,7 @@ Enable Device Y (set Method _STA = 0x0F)
 Rename SATA Controller from SAT1/SAT0 to SATA
 Renaming SAT1 to SATA is not a requirement (it's purely cosmetic), but it's an easy to understand example (read the comments indicated by // for explanations):
 
-![Captura de pantalla 2025-04-24 a las 14 06 35](https://github.com/user-attachments/assets/e91316a9-967f-4c3b-8623-b6868089142d)
+![Captura de pantalla 2025-04-24 a las 14 19 25](https://github.com/user-attachments/assets/fd7468ad-773d-47d5-bd00-f8bdd2dc8717)
 
    
 Testing and verifying
@@ -30,6 +30,7 @@ Search for SAT
 The output should look like this:
 SATA
 
+![Captura de pantalla 2025-04-24 a las 14 06 35](https://github.com/user-attachments/assets/e91316a9-967f-4c3b-8623-b6868089142d)
 ![Captura de pantalla 2025-04-24 a las 14 07 10](https://github.com/user-attachments/assets/ca9e61a0-4e01-4065-85e8-31ddb635ad1a)
 
 ![Captura de pantalla 2025-04-24 a las 14 07 34](https://github.com/user-attachments/assets/8fdf3bdc-6a2e-4b87-9452-3c0ad14712f6)
