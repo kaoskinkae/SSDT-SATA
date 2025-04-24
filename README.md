@@ -1,40 +1,59 @@
+# SSDT-SATA
 
-# Renaming Devices via SSDT
+## **Renaming Devices Using SSDT**
 
-Whenever possible, using SSDTs for renaming Devices is preferred over using binary renames because you can limit it to macOS which is impossible otherwise since OpenCore applies binary renames system-wide (unlike Clover). In this section we take a look at how this can be achieved and when to use which approach.
+Whenever possible, using SSDT to rename devices is preferred over binary renaming, as it allows for a macOS-wide approach, which is otherwise impossible since OpenCore applies binary renaming system-wide (unlike Clover). In this section, we discuss how to achieve this and when to use each method.
 
-## Patching Principle
+### Patching Principle
 
-The SSDT to rename a device must conform to the following conditions in order to work:
+The SSDT for renaming a device must meet the following conditions to work:
 
-Look for ("Scope") a Device (DeviceObj) in the DSDT at specific location(s) (PCI path) defined in the "External" Section of the SSDT
-If the loaded Kernel is "Darwin" (= the macOS Kernel) do the following:
-Disable Device X (set Method _STA = Zero) and
-Enable Device Y (set Method _STA = 0x0F)
+  Scope a device (DeviceObj) in the DSDT at the specific location(s) (PCI path) defined in the "External" section of the SSDT.
 
-*NOTE: For each Scope expression you are using there has to be a corresponding External reference.*
+PCI0 in DSDT by MaciASL 
 
-Rename SATA Controller from SAT1/SAT0 to SATA
-Renaming SAT1 o SAT0 to SATA is not a requirement (it's purely cosmetic)
+![Captura de pantalla 2025-04-24 a las 11 15 38](https://github.com/user-attachments/assets/96ed2781-c61d-499d-a685-7e50b11d20db)
 
-![Captura de pantalla 2025-04-24 a las 14 19 25](https://github.com/user-attachments/assets/fd7468ad-773d-47d5-bd00-f8bdd2dc8717)
 
-   
-### Testing and verifying
+*  If the loaded kernel is "Darwin" (the macOS kernel), do the following:
 
-Add it to /EFI/OC/ACPI and config.plist
-Save and reboot
-Run IORegistry Exlorer
-Search for SAT
-The output should look like this:
-SATA
+*  Disable device X (set the _STA method = Zero) and enable device Y (set the _STA method = 0x0F).
 
-![Captura de pantalla 2025-04-24 a las 14 06 35](https://github.com/user-attachments/assets/e91316a9-967f-4c3b-8623-b6868089142d)
-![Captura de pantalla 2025-04-24 a las 14 07 10](https://github.com/user-attachments/assets/ca9e61a0-4e01-4065-85e8-31ddb635ad1a)
 
-![Captura de pantalla 2025-04-24 a las 14 07 34](https://github.com/user-attachments/assets/8fdf3bdc-6a2e-4b87-9452-3c0ad14712f6)
+*NOTE: For each scope expression you use, there must be a corresponding external reference. See the examples.*
+
+Renaming the SATA controller from (SAT1 or SAT0) to SATA
+
+Renaming (SAT1 or SAT0) to SATA is not mandatory (it's purely cosmetic).
+
+
+![Captura de pantalla 2025-04-24 a las 9 36 05](https://github.com/user-attachments/assets/c0680600-786f-4232-923b-bc326d7df99e)
+
+
+
+
+### Testing and Verification
+
+Make sure you have a working backup of your EFI folder on a flash drive, always commenting out any changes you make.
+
+Export the SSDT as an .aml file (SSDT-SATA.aml)
+
+Add it to /EFI/OC/ACPI and to config.plist.
+
+
+### Save and reboot.
+
+Check that it appears changed in Hackintool under the PCIe section and in IORegistriExplore. If you are not present in our DSDT, you can verify this by opening MaciASL and searching for “SAT”.
+
+![Captura de pantalla 2025-04-24 a las 11 07 17](https://github.com/user-attachments/assets/03ed820c-5395-45dd-b67e-6de3c7d687ad)
+
+
+![Captura de pantalla 2025-04-24 a las 9 31 13](https://github.com/user-attachments/assets/fdbf3a17-c51b-483b-b2da-0896178aa1f0)
+
+![Captura de pantalla 2025-04-24 a las 11 05 34](https://github.com/user-attachments/assets/0eba83c5-5d7b-4c40-86c8-1c166f40a054)
+
 
 
 Credits and Resources
-Dortania for Rename-SSDT
 
+Dortania for Rename-SSDT
